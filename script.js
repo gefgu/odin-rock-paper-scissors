@@ -31,3 +31,15 @@ function playRound(playerSelection, computerSelection) {
         return "Invalid player selection";
     }
 }
+
+// Repeat 5 times the code below:
+// get the player input
+// get the computerPlay
+// display the result of playRound
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt("You choose Rock, Paper or Scissors?");
+        let computerSelection = computerPlay();
+        console.log(playRound(playerSelection, computerSelection));
+    }
+}
