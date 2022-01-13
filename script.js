@@ -28,7 +28,7 @@ function playRound(playerSelection, computerSelection) {
                 playerSelection == "SCISSORS"){
         return `You Lose! ${computerSelection} beats ${playerSelection}`;
     } else {
-        return "Invalid player selection";
+        return `${playerSelection} is an invalid choice`;
     }
 }
 
