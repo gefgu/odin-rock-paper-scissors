@@ -22,11 +22,11 @@ function playRound(playerSelection, computerSelection) {
         (playerSelection == "PAPER" && computerSelection == "ROCK") ||
         (playerSelection == "SCISSORS" && computerSelection == "PAPER")
     ) {
-        return `You Win! ${playerSelection} bets ${computerSelection}`;
+        return `You Win! ${playerSelection} beats ${computerSelection}`;
     } else if (playerSelection == "ROCK" || 
                 playerSelection == "PAPER" || 
                 playerSelection == "SCISSORS"){
-        return `You Lose! ${computerSelection} bets ${playerSelection}`;
+        return `You Lose! ${computerSelection} beats ${playerSelection}`;
     } else {
         return "Invalid player selection";
     }
