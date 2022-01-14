@@ -4,29 +4,50 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
+    let playerVictory = null;
+
     playerSelection = playerSelection.toUpperCase();
     computerSelection = computerSelection.toUpperCase();
     if (playerSelection == computerSelection) {
-        return "Draw!";
+        playerVictory = null;
     } else if (
         (playerSelection == "ROCK" && computerSelection == "SCISSORS") ||
         (playerSelection == "PAPER" && computerSelection == "ROCK") ||
         (playerSelection == "SCISSORS" && computerSelection == "PAPER")
     ) {
-        return `You Win! ${playerSelection} beats ${computerSelection}`;
-    } else if (playerSelection == "ROCK" || 
-                playerSelection == "PAPER" || 
+        playerVictory = true;
+    } else if (playerSelection == "ROCK" || playerSelection == "PAPER" || 
                 playerSelection == "SCISSORS"){
-        return `You Lose! ${computerSelection} beats ${playerSelection}`;
-    } else {
-        return `${playerSelection} is an invalid choice`;
+        playerVictory = false;
     }
+    return playerVictory;
 }
 
 
 function playButton() {
-    const resultDiv = document.querySelector(".result");
-    resultDiv.textContent = playRound(this.id, computerPlay());
+    const resultText = document.querySelector(".result");
+    const playerScore = document.querySelector(".player-score");
+    const computerScore = document.querySelector(".computer-score");
+
+    let playerVictory = playRound(this.id, computerPlay());
+
+    let message = "";
+    let score;
+    if (playerVictory) {
+        score = parseInt(playerScore.textContent);
+        score++;
+        playerScore.textContent = score;
+        message = "You Win!";
+    } else if (playerVictory === false) {
+        score = parseInt(computerScore.textContent);
+        score++;
+        computerScore.textContent = score;
+        message = "You Lost!";
+    } else {
+        message = "Draw!";
+    }
+
+    resultText.textContent = message;
 }
 
 const buttons = document.querySelectorAll("button");
