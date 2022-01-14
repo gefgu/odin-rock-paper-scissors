@@ -1,0 +1,27 @@
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.buttons button {
+    padding: 4px 16px;
+}
+
+.score-display {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.result {
+    text-align: center;
+}
