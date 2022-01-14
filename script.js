@@ -25,7 +25,8 @@ function playRound(playerSelection, computerSelection) {
 
 
 function playButton() {
-    console.log(playRound(this.id, computerPlay()));
+    const resultDiv = document.querySelector(".result");
+    resultDiv.textContent = playRound(this.id, computerPlay());
 }
 
 const buttons = document.querySelectorAll("button");
