@@ -39,6 +39,7 @@ function playButton() {
         playerScore.textContent = score;
         if (score >= 5) {
             message = "You Won The GAME!!!";
+            resetScore();
         } else {
             message = "You Won The Round!";
         }
@@ -48,6 +49,7 @@ function playButton() {
         computerScore.textContent = score;
         if (score >= 5) {
             message = "The Computer Won The GAME!!!";
+            resetScore();
         } else {
             message = "The Computer Won The Round!";
         }
@@ -56,6 +58,14 @@ function playButton() {
     }
 
     resultText.textContent = message;
+}
+
+function resetScore() {
+    const playerScore = document.querySelector(".player-score");
+    const computerScore = document.querySelector(".computer-score");
+
+    playerScore.textContent = "0";
+    computerScore.textContent = "0";
 }
 
 const buttons = document.querySelectorAll("button");
