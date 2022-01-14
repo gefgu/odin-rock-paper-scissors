@@ -4,36 +4,39 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    let playerVictory = null;
+    let playerWon = null;
 
     playerSelection = playerSelection.toUpperCase();
     computerSelection = computerSelection.toUpperCase();
     if (playerSelection == computerSelection) {
-        playerVictory = null;
+        playerWon = null;
     } else if (
         (playerSelection == "ROCK" && computerSelection == "SCISSORS") ||
         (playerSelection == "PAPER" && computerSelection == "ROCK") ||
         (playerSelection == "SCISSORS" && computerSelection == "PAPER")
     ) {
-        playerVictory = true;
+        playerWon = true;
     } else if (playerSelection == "ROCK" || playerSelection == "PAPER" || 
                 playerSelection == "SCISSORS"){
-        playerVictory = false;
+        playerWon = false;
     }
-    return playerVictory;
+    return playerWon;
 }
 
 
-function playButton() {
+function playWithButton() {
+    let playerWon = playRound(this.id, computerPlay());
+    updateScore(playerWon);
+}
+
+function updateScore(playerWon) {
     const resultText = document.querySelector(".result");
     const playerScore = document.querySelector(".player-score");
     const computerScore = document.querySelector(".computer-score");
 
-    let playerVictory = playRound(this.id, computerPlay());
-
     let message = "";
     let score;
-    if (playerVictory) {
+    if (playerWon) {
         score = parseInt(playerScore.textContent);
         score++;
         playerScore.textContent = score;
@@ -43,7 +46,7 @@ function playButton() {
         } else {
             message = "You Won The Round!";
         }
-    } else if (playerVictory === false) {
+    } else if (playerWon === false) {
         score = parseInt(computerScore.textContent);
         score++;
         computerScore.textContent = score;
@@ -69,4 +72,4 @@ function resetScore() {
 }
 
 const buttons = document.querySelectorAll("button");
-buttons.forEach(btn => btn.addEventListener("click", playButton));
+buttons.forEach(btn => btn.addEventListener("click", playWithButton));
