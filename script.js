@@ -1,17 +1,8 @@
-
-// Choose the play from an array
-// Use Math.random
 function computerPlay() {
     const options = ["Rock", "Paper", "Scissors"]
     return options[Math.floor(Math.random() * options.length)]
 }
 
-// Get playerSelection and computerSelection
-// UpperCase them
-// If they are equal return draw string
-// Check for each case of vitory of the player
-// Case true return vitory string
-// If playerSelection is a valid value return defeat string
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toUpperCase();
     computerSelection = computerSelection.toUpperCase();
@@ -31,3 +22,11 @@ function playRound(playerSelection, computerSelection) {
         return `${playerSelection} is an invalid choice`;
     }
 }
+
+
+function playButton() {
+    console.log(playRound(this.id, computerPlay()));
+}
+
+const buttons = document.querySelectorAll("button");
+buttons.forEach(btn => btn.addEventListener("click", playButton));
