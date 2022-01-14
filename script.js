@@ -37,12 +37,20 @@ function playButton() {
         score = parseInt(playerScore.textContent);
         score++;
         playerScore.textContent = score;
-        message = "You Win!";
+        if (score >= 5) {
+            message = "You Won The GAME!!!";
+        } else {
+            message = "You Won The Round!";
+        }
     } else if (playerVictory === false) {
         score = parseInt(computerScore.textContent);
         score++;
         computerScore.textContent = score;
-        message = "You Lost!";
+        if (score >= 5) {
+            message = "The Computer Won The GAME!!!";
+        } else {
+            message = "The Computer Won The Round!";
+        }
     } else {
         message = "Draw!";
     }
