@@ -41,7 +41,7 @@ function updateScore(playerWon) {
         score++;
         playerScore.textContent = score;
         if (score >= 5) {
-            message = "You Won The GAME!!!";
+            message = "You Won The Game!!!";
             resetScore();
         } else {
             message = "You Won The Round!";
@@ -51,7 +51,7 @@ function updateScore(playerWon) {
         score++;
         computerScore.textContent = score;
         if (score >= 5) {
-            message = "The Computer Won The GAME!!!";
+            message = "The Computer Won The Game!!!";
             resetScore();
         } else {
             message = "The Computer Won The Round!";
